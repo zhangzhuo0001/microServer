@@ -1,0 +1,21 @@
+---
+applications:
+- name: poc-app
+  memory: 2048M
+path: target/poc-app-0.1-RELEASE.jar
+buildpack: java_buildpack_offline
+env:
+    CF_TARGET: https://api.system.rayfay.io
+#    SECURITY_OAUTH2_CLIENT_ACCESSTOKENURI: https://uaa.apps.rayfay.io/oauth/token
+#    SECURITY_OAUTH2_CLIENT_CLIENTID: idmapp
+#    SECURITY_OAUTH2_CLIENT_CLIENTSECRET: idmappsecret
+#    SECURITY_OAUTH2_CLIENT_USERAUTHORIZATIONURI: https://uaa.apps.rayfay.io/oauth/authorize
+#    SECURITY_OAUTH2_SSO_LOGOUT_LOGOUTURL: https://uaa.apps.rayfay.io/logout
+#    JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,server=n,address=192.168.120.134:16000,suspend=y
+#    -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=16000
+services:
+- mq-for-base
+- eureka-for-base
+- oracle-for-subject
+- redis-for-base
+

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.microservice</groupId>
+   <artifactId>poc-service</artifactId>
+	<!--  <version>0.0.1-SNAPSHOT</version>  -->
+	<packaging>jar</packaging>
+
+	<parent>
+	   <groupId>com.rayfay.bizcloud</groupId>
+	   <artifactId>bizcloud-application-starter</artifactId>
+	   <version>0.0.1-SNAPSHOT</version>
+	   <relativePath/>
+	</parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+	<repositories>
+<repository> 
+<!-- <id>localMaven</id> 
+<name>local maven repo</name> 
+<url>http://121.41.224.94:9393/nexus/content/groups/public/</url> -->
+<id>central-repos</id>
+<name>Central Repository</name>
+<url>http://repo.maven.apache.org/maven2</url>
+<releases> 
+<enabled>true</enabled>
+</releases> 
+<snapshots> 
+<enabled>true</enabled> 
+</snapshots> 
+</repository>
+</repositories>
+
+  <dependencies>
+<dependency>
+   <groupId>com.rayfay.bizcloud</groupId>
+   <artifactId>core-commons</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+</dependency>
+
+      <dependency>
+          <groupId>com.cloudfoundry.connector</groupId>
+          <artifactId>oracle-connector</artifactId>
+          <version>0.1.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+          <groupId>com.oracle</groupId>
+          <artifactId>ojdbc6</artifactId>
+          <version>11.2.0.3</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-redis</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>io.springfox</groupId>
+          <artifactId>springfox-swagger2</artifactId>
+          <version>2.2.2</version>
+      </dependency>
+
+      <dependency>
+          <groupId>io.springfox</groupId>
+          <artifactId>springfox-swagger-ui</artifactId>
+          <version>2.2.2</version>
+      </dependency>
+      
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.39</version>
+            <!-- <scope>system</scope>
+            <systemPath>${project.basedir}/libs/mysql-connector-java-5.1.39.jar</systemPath> -->
+        </dependency>      
+  </dependencies>
+  
+  
+  <build>
+        <defaultGoal>compile</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                  <fork>true</fork>
+		          <jvmArguments>
+		        		-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005
+		          </jvmArguments>
+		        </configuration>
+                <dependencies>
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>springloaded</artifactId>
+						<version>1.2.6.RELEASE</version>
+					</dependency>
+				</dependencies>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>

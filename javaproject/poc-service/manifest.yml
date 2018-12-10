@@ -1,0 +1,16 @@
+---
+applications:
+- name: poc-service
+  memory: 1024M
+path: target/poc-service-0.0.1-SNAPSHOT.jar
+buildpack: java_buildpack_offline
+env:
+    CF_TARGET: https://api.system.rayfay.io
+#    JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,server=n,address=192.168.120.134:16000,suspend=y
+#    -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=16000
+services:
+- mq-for-base
+- eureka-for-base
+- oracle-for-subject
+- redis-for-base
+

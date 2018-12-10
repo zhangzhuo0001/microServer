@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://rayfay.com/schema/module"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://rayfay.com/schema/module http://www.rayfay.com/schema/modules/module-1.0.xsd">
+	<roles>
+		 <role name="super_admin" title="超级管理员" type="SUPER_ADMIN" />
+	</roles>
+	<users>
+		<user name="idmadmin" belongs="super_admin"></user>
+	</users>
+	<console>
+		<menu id="system.main" title="系统管理" primary="true" icon="">
+
+			<item id="user.menus" title="菜单管理" index="1" action="/user_menus" check=""/>
+			<item id="user.role" title="角色管理" index="3" action="/user_role" check="" icon=""/>
+			<item id="user.account" title="用户管理" index="2" action="/userAccounts" check=""/>
+			<item id="user.group" title="用户组" index="4" action="/userGroups" check="">
+			</item>
+		</menu>
+		<menu id="app.main" title="应用管理" primary="true" icon="appstore">
+			<item id="app.list" title="应用列表" index="1" action="/applicationManager/applicationList" check="" icon="bars"/>
+			<item id="app.dic" title="应用字典数据维护" index="4" action="/applicationManager/applicationDic" check="" icon="setting"/>
+			<item id="app.log" title="操作日志列表" index="5" action="/applicationManager/applicationOperateLogList" check="" icon="bars"/>
+		</menu>
+		<menu id="space.main" title="空间管理" primary="true" icon="laptop">
+			<item id="space.org" title="组织管理" index="1" action="/spaceManager/organizationManager" check="" icon="fork"/>
+			<item id="space.list" title="空间列表" index="4" action="/spaceManager/spaceList" check="" icon="bars"/>
+			<item id="space.quota" title="组织配额管理" index="7" action="/spaceManager/quotaManager" check="" icon="setting"/>
+		</menu>
+		<menu id="service.main" title="外部服务" primary="true" icon="setting">
+			<item id="service.addpub" title="新增公共服务" index="1" action="/serviceManager/serviceAddSelType" check="" icon="setting"/>
+			<item id="service.list" title="服务列表" index="4" action="/serviceManager/serviceList" check="" icon="bars"/>
+		</menu>
+		<menu id="serviceApi.main" title="服务接口" primary="true" icon="api">
+			<item id="serviceApi.list" title="接口列表" index="1" action="/serviceApi/serviceApiList" check="" icon="bars"/>
+			<item id="serviceApi.typeList" title="接口分类" index="2" action="/serviceApi/serviceTypeList" check="" icon="bars"/>
+		</menu>
+	</console>
+</module>
